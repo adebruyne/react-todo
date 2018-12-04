@@ -21,11 +21,27 @@ class TodoList extends Component {
         />
 
         <div>
-          <List items={this.state.items} delete={this.delete} />
+          <List items={this.state.items} handleClick={this._deleteTodo} />
         </div>
       </div>
     );
   }
+
+  _deleteTodo = indexToDelete => {
+    let itemsToKeep = [];
+    //keep all the items except the one at 'index'
+    this.state.items.forEach((item, index) => {
+      if (index === indexToDelete) {
+        console.log(`${indexToDelete}: delete it!`);
+      } else {
+        console.log(`${index}: keep it!`);
+        itemsToKeep.push(item);
+      }
+    });
+    this.setState({
+      items: itemsToKeep
+    });
+  };
 
   _onChange = userInput => {
     // const userInput = event.target.value;

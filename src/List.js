@@ -10,6 +10,7 @@ const List = props => {
             className="single-todo"
             onClick={() => {
               console.log("you flicked!");
+              props.handleClick(index);
             }}
           >
             {item}
