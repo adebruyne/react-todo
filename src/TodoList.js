@@ -14,14 +14,11 @@ class TodoList extends Component {
     return (
       <div className="todo-container">
         <h1 className="title">Todo App</h1>
-        <form onSubmit={this._onSubmit}>
-          <input
-            value={this.state.term}
-            onChange={this._onChange}
-            placeholder="Enter Todo"
-          />
-          <button type="submit">add</button>
-        </form>
+        <TodoForm
+          onSubmit={this._onSubmit}
+          term={this.state.term}
+          onChange={this._onChange}
+        />
 
         <div>
           <List items={this.state.items} delete={this.delete} />
