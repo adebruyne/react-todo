@@ -17,7 +17,7 @@ class TodoList extends Component {
         <TodoForm
           onSubmit={this._onSubmit}
           term={this.state.term}
-          onChange={this._onChange}
+          onChange={event => this._onChange(event.target.value)}
         />
 
         <div>
@@ -27,9 +27,11 @@ class TodoList extends Component {
     );
   }
 
-  _onChange = event => {
+  _onChange = userInput => {
+    // const userInput = event.target.value;
+    console.log(userInput);
     this.setState({
-      term: event.target.value
+      term: userInput
     });
   };
 
