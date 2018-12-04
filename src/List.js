@@ -12,6 +12,8 @@ const List = props => {
               console.log("you flicked!");
               props.handleClick(index);
             }}
+            //alternately you can write your onClick like this
+            //onClick = {props.handleClick.bind(null, index)}
           >
             {item}
           </li>
